@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CustomersTask.Models.customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn alert-dark btn-lg">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stateMarried)
+            </th>
+            <th>
+                Country
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Government)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.street)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.stateMarried)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Government.Country.countryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Government.governmentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.street)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
